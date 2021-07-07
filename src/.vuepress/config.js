@@ -46,10 +46,10 @@ module.exports = {
         text: 'API',
         link: '/api/',
       },
-      {
-        text: 'Github',
-        link: 'https://github.com/4everland/4ever-hosting-docs',
-      },
+      // {
+      //   text: 'Github',
+      //   link: 'https://github.com/4everland/4ever-hosting-docs',
+      // },
     ],
     sidebar: {
       '/guide/': [
