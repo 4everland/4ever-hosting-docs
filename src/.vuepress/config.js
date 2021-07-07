@@ -32,8 +32,9 @@ module.exports = {
    */
   themeConfig: {
     repo: '4everland/4ever-hosting-docs',
+    docsBranch: 'main',
     editLinks: true,
-    docsDir: '',
+    docsDir: 'src',
     editLinkText: 'Edit this page on GitHub',
     lastUpdated: true,
     nav: [
