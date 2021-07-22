@@ -1,6 +1,5 @@
 ---
 home: true
-title: false
 heroImage: /logo.svg
 tagline: Documents
 actionText: Quick Start →
