@@ -42,10 +42,10 @@ module.exports = {
         text: 'Guide',
         link: '/guide/',
       },
-      {
-        text: 'API',
-        link: '/api/',
-      },
+      // {
+      //   text: 'API',
+      //   link: '/api/',
+      // },
       // {
       //   text: 'Github',
       //   link: 'https://github.com/4everland/4ever-hosting-docs',
@@ -56,7 +56,7 @@ module.exports = {
         {
           title: 'Guide',
           collapsable: false,
-          children: ['', 'quick-start', 'github', 'build', 'domain', 'env'],
+          children: ['','github',  'quick-start', 'build', 'settings', 'domain'],
         },
       ],
     },
