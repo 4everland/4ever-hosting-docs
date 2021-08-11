@@ -12,7 +12,7 @@ Add the following `CName` record in your DNS records
 
 <img style="max-width:500px;margin-top:15px;box-shadow:0 30px 60px rgba(0,0,0,0.12);" src="../assets/screenshots/cname@2x.png"/>
 
-### Step2: Configure Custom domain
+## Step2: Configure Custom domain
 
 - Navigate to a project
 - Click on `Settings` on the navigation tab, and navigate to `Domains` in the sub sections
