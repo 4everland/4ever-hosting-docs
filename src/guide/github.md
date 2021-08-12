@@ -10,7 +10,7 @@ In many places on 4everland, you can find the login entrance. A 4ever-hosting ac
 
 ## Step2: New Project
 
-Click on [New Project](https://hosting.4everland.org/new) to start a new deployment, for the first of time you may need to buy or claim resources(Storage and Network).
+Click on [New Project](https://hosting.4everland.org/#/new) to start a new deployment, for the first of time you may need to buy or claim resources(Storage and Network).
 <img style="margin-top:15px;box-shadow:0 30px 60px rgba(0,0,0,0.12);" src="../assets/screenshots/new_project@2x.png"/>
 
 ## Step3: Import git repos
