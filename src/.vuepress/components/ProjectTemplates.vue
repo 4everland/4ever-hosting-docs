@@ -10,7 +10,7 @@
     >
       <a
         :href="
-          `https://hosting.4everland.org/new/clone-flow?s=$${encodeURIComponent(
+          `https://hosting.4everland.org/#/new/clone-flow?s=$${encodeURIComponent(
             p.repo
           )}`
         "
