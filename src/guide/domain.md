@@ -8,7 +8,7 @@ Add the following `CName` record in your DNS records
 
 | Type  | Name              | Target              |
 | ----- | ----------------- | ------------------- |
-| Cname | <SUB_DOMAIN_NAME> | cname.4everland.app |
+| Cname | <SUB_DOMAIN_NAME> | cname.ddnsweb3.com  |
 
 <img style="max-width:500px;margin-top:15px;box-shadow:0 30px 60px rgba(0,0,0,0.12);" src="../assets/screenshots/cname@2x.png"/>
 
