@@ -1,5 +1,7 @@
 # Build Step
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/7D9MuVk6NNA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 Start a deployment, click on "Import", then select your connected git account.
 <img style="margin-top:15px;box-shadow:0 30px 60px rgba(0,0,0,0.12);" src="../assets/screenshots/build_step.gif"/>
 
