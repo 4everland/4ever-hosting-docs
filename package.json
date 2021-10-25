@@ -14,5 +14,8 @@
   "license": "MIT",
   "devDependencies": {
     "vuepress": "^1.5.3"
+  },
+  "dependencies": {
+    "json2md": "^1.12.0"
   }
 }

@@ -1,15 +1,3 @@
----
-sidebar: auto
----
+# API
 
-# Config
-
-## foo
-
-- Type: `string`
-- Default: `/`
-
-## bar
-
-- Type: `string`
-- Default: `/`
+必须写点什么
