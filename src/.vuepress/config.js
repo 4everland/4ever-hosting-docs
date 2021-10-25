@@ -8,11 +8,12 @@ apiFiles.forEach(function(item, index) {
     apiFilesList.push(item.split(".")[0]);
   }
 });
+
 module.exports = {
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
-  title: "4EVER-Hosting",
+  title: "4EVERLAND HOSTING",
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
