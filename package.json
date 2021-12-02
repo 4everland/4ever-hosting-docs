@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "vuepress dev src",
     "build": "vuepress build src",
-    "doc": "node ./example/example.js"
+    "doc": "node ./run/run.js"
   },
   "license": "MIT",
   "devDependencies": {
