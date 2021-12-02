@@ -1,0 +1,466 @@
+[
+  {
+    "index": 0,
+    "name": "Auth",
+    "desc": null,
+    "add_time": 1635154700,
+    "up_time": 1635154700,
+    "list": [
+      {
+        "query_path": {
+          "path": "/login",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": true,
+        "index": 0,
+        "tag": [],
+        "_id": 2224,
+        "method": "POST",
+        "catid": 505,
+        "title": "cli-user-login",
+        "path": "/login",
+        "project_id": 102,
+        "req_params": [],
+        "res_body_type": "json",
+        "uid": 60,
+        "add_time": 1635155053,
+        "up_time": 1638437540,
+        "req_query": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61a892a4c2be9907c231a5a0",
+            "name": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          },
+          {
+            "required": "1",
+            "_id": "61a892a4c2be99db1e31a59f",
+            "name": "Accept-Version",
+            "value": "1.0",
+            "example": "1.0"
+          },
+          {
+            "required": "1",
+            "_id": "61a892a4c2be99dfb531a59e",
+            "name": "token",
+            "value": "",
+            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwNzAwNTNkZjRjYTQ0NGIxODU0NjE1NDZkaDVkOGMyMCJ9.DbnB54Z1PmDuZBhZ0BsisZmcjTrwDw91MyR8ph5-Avg",
+            "desc": "login token"
+          }
+        ],
+        "req_body_form": [],
+        "__v": 0,
+        "desc": "<h3>curl</h3>\n<pre><code>curl -L -X POST 'https://cli.4everland.org/login' \\\n-H 'Accept-Version: 1.0' \\\n-H 'token: xxxx'\n</code></pre>\n<h3>response</h3>\n<pre><code>{\n    \"code\": 200,\n    \"message\": \"\",\n    \"bcode\": 10,\n    \"content\": {\n        \"token\": \"callback-token\"\n    }\n}\n</code></pre>\n",
+        "markdown": "### curl\n\n```\ncurl -L -X POST 'https://cli.4everland.org/login' \\\n-H 'Accept-Version: 1.0' \\\n-H 'token: xxxx'\n```\n\n### response\n\n```\n{\n    \"code\": 200,\n    \"message\": \"\",\n    \"bcode\": 10,\n    \"content\": {\n        \"token\": \"callback-token\"\n    }\n}\n```",
+        "req_body_type": "form",
+        "res_body": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"code\":{\"type\":\"number\",\"mock\":{\"mock\":\"200\"},\"description\":\"Web status code\"},\"bcode\":{\"type\":\"number\",\"description\":\"Business code,  10: ok, other:fail\",\"mock\":{\"mock\":\"10|20\"}},\"message\":{\"type\":\"string\",\"description\":\"Show when bCode  is unequal to 10\",\"mock\":{\"mock\":\"@string\"}},\"content\":{\"type\":\"object\",\"properties\":{\"token\":{\"type\":\"string\",\"description\":\"You should use this token for other API which identification-needed\"}},\"description\":\"Data response\",\"required\":[\"token\"]}},\"required\":[\"code\",\"bcode\",\"message\",\"content\"]}"
+      }
+    ]
+  },
+  {
+    "index": 0,
+    "name": "Deploy",
+    "desc": null,
+    "add_time": 1635154779,
+    "up_time": 1635154779,
+    "list": [
+      {
+        "query_path": {
+          "path": "/deploy",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": true,
+        "index": 0,
+        "tag": [],
+        "_id": 2232,
+        "method": "POST",
+        "catid": 511,
+        "title": "cli-user-deploy",
+        "path": "/deploy",
+        "project_id": 102,
+        "req_params": [],
+        "res_body_type": "json",
+        "uid": 60,
+        "add_time": 1635156611,
+        "up_time": 1638437511,
+        "req_query": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61a89287c2be99be4331a59b",
+            "name": "Content-Type",
+            "value": "multipart/form-data"
+          },
+          {
+            "required": "1",
+            "_id": "61a89287c2be99499031a59a",
+            "name": "Accept-Version",
+            "value": "1.0",
+            "example": "1.0"
+          },
+          {
+            "required": "1",
+            "_id": "61a89287c2be992bb331a599",
+            "name": "token",
+            "example": "",
+            "desc": "login token"
+          }
+        ],
+        "req_body_form": [
+          {
+            "required": "1",
+            "_id": "61a89287c2be99fbbc31a59d",
+            "name": "file",
+            "type": "file",
+            "desc": "The zip file must contain index.html in the root folder."
+          },
+          {
+            "required": "1",
+            "_id": "61a89287c2be99e9ef31a59c",
+            "name": "projectId",
+            "type": "text",
+            "example": "",
+            "desc": "A character string from cli-user-project-list"
+          }
+        ],
+        "__v": 0,
+        "desc": "<h3>curl:</h3>\n<pre><code>curl -L -X POST 'https://cli.4everland.org/deploy' \\\n-H 'token: xxxx' \\\n-H 'Accept-Version: 1.0' \\\n-F 'file=@\"/path/to/ipfs.zip\"'\n-F 'projectId=61a6e99088b02d0001344792'\n</code></pre>\n<h3>response:</h3>\n<pre><code>{\n    \"code\":200,\n    \"message\":\"\",\n    \"bcode\":10,\n    \"content\":{\n        \"domainList\":[\n            \"domain-a.com\",\n            \"domain-b.com\",\n            \"domain-c.com\"\n        ],\n        \"fileHash\":\"ababababFababiableababHabasababh\"\n    }\n}\n</code></pre>\n",
+        "markdown": "### curl:\n\n```\ncurl -L -X POST 'https://cli.4everland.org/deploy' \\\n-H 'token: xxxx' \\\n-H 'Accept-Version: 1.0' \\\n-F 'file=@\"/path/to/ipfs.zip\"'\n-F 'projectId=61a6e99088b02d0001344792'\n```\n\n### response:\n\n```\n{\n    \"code\":200,\n    \"message\":\"\",\n    \"bcode\":10,\n    \"content\":{\n        \"domainList\":[\n            \"domain-a.com\",\n            \"domain-b.com\",\n            \"domain-c.com\"\n        ],\n        \"fileHash\":\"ababababFababiableababHabasababh\"\n    }\n}\n```",
+        "req_body_type": "form",
+        "res_body": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"code\":{\"type\":\"number\",\"mock\":{\"mock\":\"200\"},\"description\":\"Web status code\"},\"bcode\":{\"type\":\"number\",\"mock\":{\"mock\":\"10|20\"},\"description\":\"Business code,  10: ok, other:fail\"},\"message\":{\"type\":\"string\",\"description\":\"Show when bCode  is unequal to 10\"},\"content\":{\"type\":\"object\",\"properties\":{\"fileHash\":{\"type\":\"string\",\"mock\":{\"mock\":\"6a204bd89f3c8348afd5c77c717a097a\"},\"description\":\"This character string is unique.\"},\"domainList\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"mock\":{\"mock\":\"@domain\"}},\"description\":\"All domain binded into the deployed project will be showed on domainList\"}},\"required\":[\"fileHash\",\"domainList\"],\"description\":\"Data response\"}},\"required\":[]}"
+      }
+    ]
+  },
+  {
+    "index": 0,
+    "name": "Projects",
+    "desc": null,
+    "add_time": 1635154788,
+    "up_time": 1635154788,
+    "list": [
+      {
+        "query_path": {
+          "path": "/project",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": true,
+        "index": 0,
+        "tag": [],
+        "_id": 2256,
+        "method": "POST",
+        "catid": 517,
+        "title": "cli-user-create-remote-project",
+        "path": "/project",
+        "project_id": 102,
+        "req_params": [],
+        "res_body_type": "json",
+        "uid": 60,
+        "add_time": 1635157292,
+        "up_time": 1638437485,
+        "req_query": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61a8926dc2be99315431a593",
+            "name": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          },
+          {
+            "required": "1",
+            "_id": "61a8926dc2be99859231a592",
+            "name": "Accept-Version",
+            "value": "1.0"
+          },
+          {
+            "required": "1",
+            "_id": "61a8926dc2be9934b731a591",
+            "name": "token",
+            "example": "",
+            "desc": ""
+          }
+        ],
+        "req_body_form": [
+          {
+            "required": "1",
+            "_id": "61a8926dc2be99f52631a594",
+            "name": "projectName",
+            "type": "text",
+            "desc": "project name"
+          }
+        ],
+        "__v": 0,
+        "desc": "<h3>curl:</h3>\n<pre><code>curl -L -X POST 'https://cli.4everland.org/project' \\\n-H 'Accept-Version: 1.0' \\\n-H 'token: xxx' \\\n-F 'projectName=\"cli\"'\n</code></pre>\n<h3>response:</h3>\n<pre><code>{\n    \"code\": 200,\n    \"message\": \"\",\n    \"bcode\": 10,\n    \"content\": {\n        \"projectId\": \"pCrhSaroatcrjtierencgt\"\n    }\n}\n</code></pre>\n",
+        "markdown": "### curl:\n\n```\ncurl -L -X POST 'https://cli.4everland.org/project' \\\n-H 'Accept-Version: 1.0' \\\n-H 'token: xxx' \\\n-F 'projectName=\"cli\"'\n```\n\n### response:\n\n```\n{\n    \"code\": 200,\n    \"message\": \"\",\n    \"bcode\": 10,\n    \"content\": {\n        \"projectId\": \"pCrhSaroatcrjtierencgt\"\n    }\n}\n```",
+        "req_body_type": "form",
+        "res_body": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"code\":{\"type\":\"number\",\"mock\":{\"mock\":\"200\"},\"description\":\"Web status code\"},\"bcode\":{\"type\":\"number\",\"mock\":{\"mock\":\"10|20\"},\"description\":\"Business code,  10: ok, other:fail\"},\"message\":{\"type\":\"string\",\"mock\":{\"mock\":\"@string\"},\"description\":\"Show when bCode  is unequal to 10\"},\"content\":{\"type\":\"object\",\"properties\":{\"projectId\":{\"type\":\"string\",\"mock\":{\"mock\":\"@string\"},\"description\":\"The unique character string of the project you created\"}},\"required\":[],\"description\":\"Data response\"}},\"required\":[]}"
+      },
+      {
+        "query_path": {
+          "path": "/project/{page}",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": true,
+        "index": 0,
+        "tag": [],
+        "_id": 2264,
+        "method": "GET",
+        "catid": 517,
+        "title": "cli-user-project-list",
+        "path": "/project/{page}",
+        "project_id": 102,
+        "req_params": [
+          {
+            "_id": "61a8927ac2be99df9e31a595",
+            "name": "page",
+            "example": "1",
+            "desc": "页码"
+          }
+        ],
+        "res_body_type": "json",
+        "uid": 60,
+        "add_time": 1635157354,
+        "up_time": 1638437498,
+        "req_query": [
+          {
+            "required": "1",
+            "_id": "61a8927ac2be99190b31a596",
+            "name": "pageSize",
+            "desc": "Size of single page which should not exceeded 15"
+          }
+        ],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61a8927ac2be99c2bf31a598",
+            "name": "token",
+            "value": ""
+          },
+          {
+            "required": "1",
+            "_id": "61a8927ac2be99039831a597",
+            "name": "Accept-Version",
+            "value": "1.0",
+            "example": "",
+            "desc": ""
+          }
+        ],
+        "req_body_form": [],
+        "__v": 0,
+        "desc": "<h3>curl:</h3>\n<pre><code>curl -L -X GET 'https://cli.4everland.org/project/1' \\\n-H 'Accept-Version: 1.0' \\\n-H 'token: xxx'\n</code></pre>\n<h3>response:</h3>\n<pre><code>{\n    \"code\": 200,\n    \"message\": \"\",\n    \"bcode\": 10,\n    \"content\": {\n        \"count\": 20,\n        \"list\": [\n            {\n                \"name\": \"a-project\",\n                \"isCli\": false,\n                \"projectId\": \"pCrHhaaroajeschcttIedr\",\n                \"createAt\": 1234567890\n            }\n        ]\n    }\n}\n</code></pre>\n",
+        "markdown": "### curl:\n\n```\ncurl -L -X GET 'https://cli.4everland.org/project/1' \\\n-H 'Accept-Version: 1.0' \\\n-H 'token: xxx'\n```\n\n### response:\n\n```\n{\n    \"code\": 200,\n    \"message\": \"\",\n    \"bcode\": 10,\n    \"content\": {\n        \"count\": 20,\n        \"list\": [\n            {\n                \"name\": \"a-project\",\n                \"isCli\": false,\n                \"projectId\": \"pCrHhaaroajeschcttIedr\",\n                \"createAt\": 1234567890\n            }\n        ]\n    }\n}\n```",
+        "res_body": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"code\":{\"type\":\"number\",\"mock\":{\"mock\":\"200\"},\"description\":\"Web status code\"},\"bcode\":{\"type\":\"number\",\"mock\":{\"mock\":\"10|20\"},\"description\":\"Business code,  10: ok, other:fail\"},\"message\":{\"type\":\"string\",\"mock\":{\"mock\":\"@string\"},\"description\":\"Show when bCode  is unequal to 10\"},\"content\":{\"type\":\"object\",\"properties\":{\"list\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"projectId\":{\"type\":\"string\",\"mock\":{\"mock\":\"@string\"},\"description\":\"Unique character string of project you created\"},\"name\":{\"type\":\"string\",\"mock\":{\"mock\":\"@string\"},\"description\":\"Project Name\"},\"createdAt\":{\"type\":\"string\",\"mock\":{\"mock\":\"@date\"},\"description\":\"Timestamp of the date the project created\"},\"isCli\":{\"type\":\"boolean\",\"mock\":{\"mock\":\"@boolean\"},\"description\":\"Whether created by CLI\"}},\"required\":[\"projectId\",\"createdAt\",\"name\",\"isCli\"]}},\"count\":{\"type\":\"number\",\"description\":\"count of all data\"}},\"required\":[\"list\",\"count\"],\"description\":\"Data response\"}},\"required\":[\"code\",\"bcode\",\"message\",\"content\"]}"
+      }
+    ]
+  },
+  {
+    "index": 0,
+    "name": "Domains",
+    "desc": null,
+    "add_time": 1635154792,
+    "up_time": 1635154792,
+    "list": [
+      {
+        "query_path": {
+          "path": "/domain/{projectId}",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": true,
+        "index": 0,
+        "tag": [],
+        "_id": 2280,
+        "method": "POST",
+        "catid": 523,
+        "title": "cli-user-domain-add",
+        "path": "/domain/{projectId}",
+        "project_id": 102,
+        "req_params": [
+          {
+            "_id": "61a892f8c2be998f3e31a5a1",
+            "name": "projectId",
+            "desc": "Identity of the binded project"
+          }
+        ],
+        "res_body_type": "json",
+        "uid": 60,
+        "add_time": 1635217762,
+        "up_time": 1638437624,
+        "req_query": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61a892f8c2be99f72a31a5a4",
+            "name": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          },
+          {
+            "required": "1",
+            "_id": "61a892f8c2be99eceb31a5a3",
+            "name": "Accept-Version",
+            "value": "1.0"
+          },
+          {
+            "required": "1",
+            "_id": "61a892f8c2be99724131a5a2",
+            "name": "token",
+            "example": "",
+            "desc": ""
+          }
+        ],
+        "req_body_form": [
+          {
+            "required": "1",
+            "_id": "61a892f8c2be99994e31a5a5",
+            "name": "domain",
+            "type": "text",
+            "example": "www.baidu.com"
+          }
+        ],
+        "__v": 0,
+        "desc": "<h3>curl:</h3>\n<pre><code>curl -L -X POST 'https://cli.4everland.org/domain/618b24dcb396bd0001247ed0' \\\n-H 'Accept-Version: 1.0' \\\n-H 'token: xxx' \\\n-F 'domain=\"www.domain.local\"'\n</code></pre>\n<h3>response:</h3>\n<pre><code>{\n    \"code\":200,\n    \"message\":\"\",\n    \"bcode\":10,\n    \"content\":{\n        \"domainId\":\"dCHomharainIaacdteshr\"\n    }\n}\n</code></pre>\n",
+        "markdown": "### curl:\n\n```\ncurl -L -X POST 'https://cli.4everland.org/domain/618b24dcb396bd0001247ed0' \\\n-H 'Accept-Version: 1.0' \\\n-H 'token: xxx' \\\n-F 'domain=\"www.domain.local\"'\n```\n\n### response:\n\n```\n{\n    \"code\":200,\n    \"message\":\"\",\n    \"bcode\":10,\n    \"content\":{\n        \"domainId\":\"dCHomharainIaacdteshr\"\n    }\n}\n```",
+        "req_body_type": "form",
+        "res_body": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"code\":{\"type\":\"number\",\"mock\":{\"mock\":\"200\"},\"description\":\"Web status code\"},\"bcode\":{\"type\":\"number\",\"mock\":{\"mock\":\"10|20\"},\"description\":\"Business code,  10: ok, other:fail\"},\"message\":{\"type\":\"string\",\"mock\":{\"mock\":\"@string\"},\"description\":\"Show when bCode  is unequal to 10\"},\"content\":{\"type\":\"object\",\"properties\":{\"domainId\":{\"type\":\"string\",\"mock\":{\"mock\":\"@string\"},\"description\":\"Unique character string.\"}},\"required\":[\"domainId\"],\"description\":\"Data response\"}},\"required\":[]}"
+      },
+      {
+        "query_path": {
+          "path": "/domain/examination",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": true,
+        "index": 0,
+        "tag": [],
+        "_id": 2248,
+        "method": "GET",
+        "catid": 523,
+        "title": "cli-user-domain-check",
+        "path": "/domain/examination",
+        "project_id": 102,
+        "req_params": [],
+        "res_body_type": "json",
+        "uid": 60,
+        "add_time": 1635157214,
+        "up_time": 1638437476,
+        "req_query": [
+          {
+            "required": "1",
+            "_id": "61a89264c2be99bff131a58e",
+            "name": "domainId",
+            "example": "617769cb1db66200010616b0",
+            "desc": "from cli-user-domain-list.content.list[].domainId"
+          }
+        ],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61a89264c2be99a61c31a590",
+            "name": "Accept-Version",
+            "value": "1.0"
+          },
+          {
+            "required": "1",
+            "_id": "61a89264c2be9912c031a58f",
+            "name": "token",
+            "example": "",
+            "desc": ""
+          }
+        ],
+        "req_body_form": [],
+        "__v": 0,
+        "desc": "<h3>curl:</h3>\n<pre><code>curl -L -X GET 'https://cli.4everland.org/domain/examination?domainId=618d0108610d500001f5fdc4' \\\n-H 'Accept-Version: 1.0' \\\n-H 'token: xxx'\n</code></pre>\n<h3>response:</h3>\n<pre><code>{\n    \"code\": 200,\n    \"message\": \"\",\n    \"bcode\": 10,\n    \"content\": {\n        \"Success\": false\n    }\n}\n</code></pre>\n",
+        "markdown": "### curl:\n\n```\ncurl -L -X GET 'https://cli.4everland.org/domain/examination?domainId=618d0108610d500001f5fdc4' \\\n-H 'Accept-Version: 1.0' \\\n-H 'token: xxx'\n```\n\n### response:\n\n```\n{\n    \"code\": 200,\n    \"message\": \"\",\n    \"bcode\": 10,\n    \"content\": {\n        \"Success\": false\n    }\n}\n```",
+        "res_body": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"code\":{\"type\":\"number\",\"mock\":{\"mock\":\"200\"},\"description\":\"Web status code\"},\"bcode\":{\"type\":\"number\",\"mock\":{\"mock\":\"10|20\"},\"description\":\"Business code,  10: ok, other:fail\"},\"message\":{\"type\":\"string\",\"mock\":{\"mock\":\"@string\"},\"description\":\"Show when bCode  is unequal to 10\"},\"content\":{\"type\":\"object\",\"properties\":{\"Success\":{\"type\":\"boolean\",\"description\":\"Result\"}},\"required\":[],\"description\":\"Data response\"}},\"required\":[]}"
+      },
+      {
+        "query_path": {
+          "path": "/domain/{page}",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": true,
+        "index": 0,
+        "tag": [],
+        "_id": 2240,
+        "method": "GET",
+        "catid": 523,
+        "title": "cli-user-domain-list",
+        "path": "/domain/{page}",
+        "project_id": 102,
+        "req_params": [
+          {
+            "_id": "61a8925fc2be99494e31a58a",
+            "name": "page",
+            "example": "1",
+            "desc": "页码"
+          }
+        ],
+        "res_body_type": "json",
+        "uid": 60,
+        "add_time": 1635157099,
+        "up_time": 1638437471,
+        "req_query": [
+          {
+            "required": "1",
+            "_id": "61a8925fc2be993ebd31a58b",
+            "name": "pageSize",
+            "desc": "Size of single page, should not exceeded 15"
+          }
+        ],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61a8925fc2be9921d531a58d",
+            "name": "Accept-Version",
+            "value": "1.0"
+          },
+          {
+            "required": "1",
+            "_id": "61a8925fc2be9955e231a58c",
+            "name": "token",
+            "example": "",
+            "desc": ""
+          }
+        ],
+        "req_body_form": [],
+        "__v": 0,
+        "desc": "<h3>curl:</h3>\n<pre><code>curl -L -X GET 'https://cli.4everland.org/domain/1?pageSize=10' \\\n-H 'Accept-Version: 1.0' \\\n-H 'token: xxx'\n</code></pre>\n<h3>response:</h3>\n<pre><code>{\n    \"code\": 200,\n    \"message\": \"\",\n    \"bcode\": 10,\n    \"content\": {\n        \"domainList\": [\n            {\n                \"valid\": false,\n                \"domain\": \"www.domain.com\",\n                \"domainName\": \"domain.com\",\n                \"certificate\": false,\n                \"nameServers\": \"THIRD_PARTY\",\n                \"projectName\": \"a-project\",\n                \"projectId\": \"prCohaHrjeacacsttheIrd\",\n                \"createAt\": 1234567890,\n                \"domainId\": \"CdhaHomraaiacsnthIedr\"\n            }\n        ],\n        \"count\": 1\n    }\n}\n</code></pre>\n",
+        "markdown": "### curl:\n\n```\ncurl -L -X GET 'https://cli.4everland.org/domain/1?pageSize=10' \\\n-H 'Accept-Version: 1.0' \\\n-H 'token: xxx'\n```\n\n### response:\n\n```\n{\n    \"code\": 200,\n    \"message\": \"\",\n    \"bcode\": 10,\n    \"content\": {\n        \"domainList\": [\n            {\n                \"valid\": false,\n                \"domain\": \"www.domain.com\",\n                \"domainName\": \"domain.com\",\n                \"certificate\": false,\n                \"nameServers\": \"THIRD_PARTY\",\n                \"projectName\": \"a-project\",\n                \"projectId\": \"prCohaHrjeacacsttheIrd\",\n                \"createAt\": 1234567890,\n                \"domainId\": \"CdhaHomraaiacsnthIedr\"\n            }\n        ],\n        \"count\": 1\n    }\n}\n```",
+        "res_body": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"code\":{\"type\":\"number\",\"mock\":{\"mock\":\"200\"},\"title\":\"Web status code.\"},\"bcode\":{\"type\":\"number\",\"mock\":{\"mock\":\"10|20\"},\"title\":\"Business code,  10: ok, other:fail.\"},\"message\":{\"type\":\"string\",\"mock\":{\"mock\":\"@string\"},\"title\":\"Show when bCode  is unequal to 10.\"},\"content\":{\"type\":\"object\",\"properties\":{\"list\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"certificate\":{\"type\":\"boolean\",\"mock\":{\"mock\":\"@boolean\"},\"title\":\"Whether certificated.\"},\"createAt\":{\"type\":\"string\",\"mock\":{\"mock\":\"@timestamp\"},\"title\":\"Timestamp of the date the domain created.\"},\"domain\":{\"type\":\"string\",\"mock\":{\"mock\":\"@domain\"},\"title\":\"Domain, e.g. www.domain.com.\"},\"domainId\":{\"type\":\"string\",\"mock\":{\"mock\":\"@string\"},\"title\":\"Unique character string.\"},\"domainName\":{\"type\":\"string\",\"mock\":{\"mock\":\"@domain\"},\"title\":\"Domain name, e.g. domain.com.\"},\"nameServers\":{\"type\":\"string\",\"mock\":{\"mock\":\"@string\"},\"title\":\"Subordination type.\"},\"projectId\":{\"type\":\"string\",\"mock\":{\"mock\":\"@string\"},\"title\":\"The project Binded into.\"},\"projectName\":{\"type\":\"string\",\"mock\":{\"mock\":\"@string\"},\"title\":\"Name of project which binded into.\"},\"valid\":{\"type\":\"boolean\",\"mock\":{\"mock\":\"@boolean\"},\"title\":\"Whether binded successfully.\"}},\"required\":[\"certificate\",\"domain\",\"createAt\",\"nameServers\",\"domainName\",\"domainId\",\"projectName\",\"projectId\",\"valid\"]}},\"count\":{\"type\":\"number\",\"title\":\"All data counts.\"}},\"required\":[\"list\",\"count\"],\"title\":\"Data response.\"}},\"required\":[\"code\",\"bcode\",\"message\",\"content\"]}"
+      }
+    ]
+  }
+]
