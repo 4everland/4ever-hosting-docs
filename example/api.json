@@ -246,7 +246,7 @@
             "required": "1",
             "_id": "61a8927ac2be99190b31a596",
             "name": "pageSize",
-            "desc": "单页长度，默认10"
+            "desc": "Size of single page which should not exceeded 15"
           }
         ],
         "req_headers": [

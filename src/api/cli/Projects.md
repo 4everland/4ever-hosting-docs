@@ -63,7 +63,7 @@ GET /project/{page}
 
 | name | required | desc |
 | ---- | -------- | ---- |
-| pageSize | true | 单页长度，默认10 |
+| pageSize | true | Size of single page which should not exceeded 15 |
 
 ### curl:
 
