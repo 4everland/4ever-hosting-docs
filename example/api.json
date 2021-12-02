@@ -1,14 +1,14 @@
 [
   {
     "index": 0,
-    "name": "Record",
+    "name": "Auth",
     "desc": null,
-    "add_time": 1620884661,
-    "up_time": 1620889119,
+    "add_time": 1635154700,
+    "up_time": 1635154700,
     "list": [
       {
         "query_path": {
-          "path": "/lookup",
+          "path": "/login",
           "params": []
         },
         "edit_uid": 0,
@@ -16,417 +16,63 @@
         "type": "static",
         "req_body_is_json_schema": true,
         "res_body_is_json_schema": true,
-        "api_opened": false,
+        "api_opened": true,
         "index": 0,
         "tag": [],
-        "_id": 1892,
-        "method": "GET",
-        "catid": 171,
-        "title": "lookup",
-        "path": "/lookup",
-        "project_id": 23,
+        "_id": 2224,
+        "method": "POST",
+        "catid": 505,
+        "title": "cli-user-login",
+        "path": "/login",
+        "project_id": 102,
         "req_params": [],
         "res_body_type": "json",
-        "uid": 19,
-        "add_time": 1630310192,
-        "up_time": 1630311598,
-        "req_query": [
-          {
-            "required": "1",
-            "_id": "612c94ae2d68f988038ac640",
-            "name": "host",
-            "example": "example.com",
-            "desc": ""
-          },
-          {
-            "required": "1",
-            "_id": "612c94ae2d68f914918ac63f",
-            "name": "type",
-            "example": "CNAME",
-            "desc": "默认CNAME"
-          }
-        ],
-        "req_headers": [],
-        "req_body_form": [],
-        "__v": 0,
-        "desc": "",
-        "markdown": "",
-        "res_body": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"code\":{\"type\":\"number\"},\"msg\":{\"type\":\"string\"},\"data\":{\"type\":\"object\",\"properties\":{\"cname\":{\"type\":\"string\",\"description\":\"cname.foreverland.xyz.\",\"title\":\"cname\"}},\"required\":[\"cname\"]}},\"required\":[\"code\",\"msg\",\"data\"]}"
-      },
-      {
-        "query_path": {
-          "path": "/resource-record/:id",
-          "params": []
-        },
-        "edit_uid": 0,
-        "status": "done",
-        "type": "var",
-        "req_body_is_json_schema": true,
-        "res_body_is_json_schema": true,
-        "api_opened": false,
-        "index": 0,
-        "tag": [],
-        "_id": 1579,
-        "method": "DELETE",
-        "catid": 171,
-        "title": "删除DNS资源记录",
-        "path": "/resource-record/:id",
-        "project_id": 23,
-        "req_params": [
-          {
-            "_id": "61288b122d68f9c6fe8ac62c",
-            "name": "id",
-            "example": "60a241d9b63d09d5b6f0b5bd",
-            "desc": ""
-          }
-        ],
-        "res_body_type": "json",
-        "uid": 19,
-        "add_time": 1621247042,
-        "up_time": 1630046994,
+        "uid": 60,
+        "add_time": 1635155053,
+        "up_time": 1638437540,
         "req_query": [],
         "req_headers": [
           {
             "required": "1",
-            "_id": "61288b122d68f93e358ac62d",
+            "_id": "61a892a4c2be9907c231a5a0",
             "name": "Content-Type",
             "value": "application/x-www-form-urlencoded"
+          },
+          {
+            "required": "1",
+            "_id": "61a892a4c2be99db1e31a59f",
+            "name": "Accept-Version",
+            "value": "1.0",
+            "example": "1.0"
+          },
+          {
+            "required": "1",
+            "_id": "61a892a4c2be99dfb531a59e",
+            "name": "token",
+            "value": "",
+            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwNzAwNTNkZjRjYTQ0NGIxODU0NjE1NDZkaDVkOGMyMCJ9.DbnB54Z1PmDuZBhZ0BsisZmcjTrwDw91MyR8ph5-Avg",
+            "desc": "login token"
           }
         ],
         "req_body_form": [],
         "__v": 0,
-        "desc": "<pre><code data-language=\"curl\" class=\"lang-curl\">curl --location --request DELETE '{dns-api-host}/resource-record/60a241d9b63d09d5b6f0b5bd' \n</code></pre>\n<pre><code data-language=\"json\" class=\"lang-json\">{\n    \"code\": 0,\n    \"msg\": \"成功\",\n    \"data\": {}\n}\n</code></pre>\n",
-        "markdown": "``` curl\ncurl --location --request DELETE '{dns-api-host}/resource-record/60a241d9b63d09d5b6f0b5bd' \n```\n\n``` json\n{\n    \"code\": 0,\n    \"msg\": \"成功\",\n    \"data\": {}\n}\n```",
+        "desc": "<h3>curl</h3>\n<pre><code>curl -L -X POST 'https://cli.4everland.org/login' \\\n-H 'Accept-Version: 1.0' \\\n-H 'token: xxxx'\n</code></pre>\n<h3>response</h3>\n<pre><code>{\n    \"code\": 200,\n    \"message\": \"\",\n    \"bcode\": 10,\n    \"content\": {\n        \"token\": \"callback-token\"\n    }\n}\n</code></pre>\n",
+        "markdown": "### curl\n\n```\ncurl -L -X POST 'https://cli.4everland.org/login' \\\n-H 'Accept-Version: 1.0' \\\n-H 'token: xxxx'\n```\n\n### response\n\n```\n{\n    \"code\": 200,\n    \"message\": \"\",\n    \"bcode\": 10,\n    \"content\": {\n        \"token\": \"callback-token\"\n    }\n}\n```",
         "req_body_type": "form",
-        "res_body": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"code\":{\"type\":\"number\"},\"msg\":{\"type\":\"string\"},\"data\":{\"type\":\"object\",\"properties\":{}}},\"required\":[\"code\"]}"
-      },
-      {
-        "query_path": {
-          "path": "/config",
-          "params": []
-        },
-        "edit_uid": 0,
-        "status": "done",
-        "type": "static",
-        "req_body_is_json_schema": true,
-        "res_body_is_json_schema": true,
-        "api_opened": false,
-        "index": 0,
-        "tag": [],
-        "_id": 1563,
-        "method": "GET",
-        "catid": 171,
-        "title": "获取配置项",
-        "path": "/config",
-        "project_id": 23,
-        "req_params": [],
-        "res_body_type": "json",
-        "uid": 19,
-        "add_time": 1621243139,
-        "up_time": 1621243254,
-        "req_query": [],
-        "req_headers": [],
-        "req_body_form": [],
-        "__v": 0,
-        "desc": "<pre><code data-language=\"curl\" class=\"lang-curl\">curl --location --request GET '{dns-api-host}/resource-records/config'\n</code></pre>\n<pre><code data-language=\"json\" class=\"lang-json\">{\n    \"code\": 0,\n    \"msg\": \"成功\",\n    \"data\": {\n        \"min_ttl\": 60,\n        \"max_ttl\": 86400,\n        \"min_priority\": 0,\n        \"max_priority\": 65535\n    }\n}\n</code></pre>\n",
-        "markdown": "```curl\ncurl --location --request GET '{dns-api-host}/resource-records/config'\n```\n\n```json\n{\n    \"code\": 0,\n    \"msg\": \"成功\",\n    \"data\": {\n        \"min_ttl\": 60,\n        \"max_ttl\": 86400,\n        \"min_priority\": 0,\n        \"max_priority\": 65535\n    }\n}\n```",
-        "res_body": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"code\":{\"type\":\"number\"},\"msg\":{\"type\":\"string\"},\"data\":{\"type\":\"object\",\"properties\":{\"min_ttl\":{\"type\":\"number\",\"description\":\"最短缓存时间(秒)\"},\"max_ttl\":{\"type\":\"number\",\"description\":\"最长缓存时间(秒)\"},\"min_priority\":{\"type\":\"number\",\"description\":\"最低权重值\"},\"max_priority\":{\"type\":\"number\",\"description\":\"最高权重值\"}},\"required\":[\"min_ttl\",\"max_ttl\",\"min_priority\",\"max_priority\"]}},\"required\":[\"code\",\"msg\",\"data\"]}"
-      },
-      {
-        "query_path": {
-          "path": "/resolve",
-          "params": []
-        },
-        "edit_uid": 0,
-        "status": "done",
-        "type": "static",
-        "req_body_is_json_schema": true,
-        "res_body_is_json_schema": true,
-        "api_opened": false,
-        "index": 0,
-        "tag": [],
-        "_id": 1793,
-        "method": "GET",
-        "catid": 171,
-        "title": "解析（无需对接）",
-        "path": "/resolve",
-        "project_id": 23,
-        "req_params": [],
-        "res_body_type": "json",
-        "uid": 19,
-        "add_time": 1622444666,
-        "up_time": 1622445087,
-        "req_query": [
-          {
-            "required": "1",
-            "_id": "60b48c1f7fe16c744e7a2813",
-            "name": "name",
-            "example": "a.example.com",
-            "desc": "quesion name"
-          },
-          {
-            "required": "1",
-            "_id": "60b48c1f7fe16cbbc97a2812",
-            "name": "type",
-            "example": "1",
-            "desc": "mikeg/dns type"
-          }
-        ],
-        "req_headers": [],
-        "req_body_form": [],
-        "__v": 0,
-        "desc": "<pre><code data-language=\"curl\" class=\"lang-curl\">curl --location --request GET '{dns-api-host}/resolve?name=foreverland.xyz&amp;type=1'\n</code></pre>\n<pre><code data-language=\"json\" class=\"lang-json\">{\n    \"code\": 0,\n    \"msg\": \"成功\",\n    \"data\": {\n        \"list\": [\n            {\n                \"name\": \"@\",\n                \"domain\": \"foreverland.xyz\",\n                \"value\": \"8.8.8.8\",\n                \"ttl\": 60\n            }\n        ]\n    }\n}\n</code></pre>\n",
-        "markdown": "```curl\ncurl --location --request GET '{dns-api-host}/resolve?name=foreverland.xyz&type=1'\n```\n\n```json\n{\n    \"code\": 0,\n    \"msg\": \"成功\",\n    \"data\": {\n        \"list\": [\n            {\n                \"name\": \"@\",\n                \"domain\": \"foreverland.xyz\",\n                \"value\": \"8.8.8.8\",\n                \"ttl\": 60\n            }\n        ]\n    }\n}\n```",
-        "res_body": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"code\":{\"type\":\"number\"},\"msg\":{\"type\":\"string\"},\"data\":{\"type\":\"object\",\"properties\":{\"list\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\"},\"domain\":{\"type\":\"string\"},\"value\":{\"type\":\"string\"},\"ttl\":{\"type\":\"number\"}},\"required\":[\"name\",\"domain\",\"value\",\"ttl\"]}}},\"required\":[\"list\"]}},\"required\":[\"code\",\"msg\",\"data\"]}"
-      },
-      {
-        "query_path": {
-          "path": "/resource-records/conflict",
-          "params": []
-        },
-        "edit_uid": 0,
-        "status": "done",
-        "type": "static",
-        "req_body_is_json_schema": true,
-        "res_body_is_json_schema": true,
-        "api_opened": false,
-        "index": 0,
-        "tag": [],
-        "_id": 1807,
-        "method": "GET",
-        "catid": 171,
-        "title": "资源记录冲突检查",
-        "path": "/resource-records/conflict",
-        "project_id": 23,
-        "req_params": [],
-        "res_body_type": "json",
-        "uid": 19,
-        "add_time": 1622710291,
-        "up_time": 1622710598,
-        "req_query": [
-          {
-            "required": "1",
-            "_id": "60b899477fe16c6e907a2854",
-            "name": "name",
-            "example": "@",
-            "desc": "名称"
-          },
-          {
-            "required": "1",
-            "_id": "60b899477fe16c5fc47a2853",
-            "name": "type",
-            "example": "CNAME",
-            "desc": "类型"
-          },
-          {
-            "required": "1",
-            "_id": "60b899467fe16c370f7a2852",
-            "name": "domain",
-            "example": "example.com",
-            "desc": "域名"
-          }
-        ],
-        "req_headers": [],
-        "req_body_form": [],
-        "__v": 0,
-        "desc": "<p>该为创建和修改的前置检查接口</p>\n<pre><code data-language=\"curl\" class=\"lang-curl\">curl --location --request GET '{dns-api-host}/resource-records/conflict?name=@&amp;type=CNAME&amp;domain=foreverland.xyz'\n</code></pre>\n<pre><code data-language=\"json\" class=\"lang-json\">{\n    \"code\": 0,\n    \"msg\": \"成功\",\n    \"data\": {\n        \"has_conflict\": true,\n        \"list\": [\n            {\n                \"id\": \"60a74975c11f8dbc3aae11c9\",\n                \"domain\": \"foreverland.xyz\",\n                \"name\": \"@\",\n                \"type\": \"A\"\n            }\n        ]\n    }\n}\n</code></pre>\n",
-        "markdown": "该为创建和修改的前置检查接口\n```curl\ncurl --location --request GET '{dns-api-host}/resource-records/conflict?name=@&type=CNAME&domain=foreverland.xyz'\n```\n\n```json\n{\n    \"code\": 0,\n    \"msg\": \"成功\",\n    \"data\": {\n        \"has_conflict\": true,\n        \"list\": [\n            {\n                \"id\": \"60a74975c11f8dbc3aae11c9\",\n                \"domain\": \"foreverland.xyz\",\n                \"name\": \"@\",\n                \"type\": \"A\"\n            }\n        ]\n    }\n}\n```",
-        "res_body": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"code\":{\"type\":\"number\"},\"msg\":{\"type\":\"string\"},\"data\":{\"type\":\"object\",\"properties\":{\"has_conflict\":{\"type\":\"boolean\",\"description\":\"有无冲突\"},\"list\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\",\"description\":\"ID\"},\"domain\":{\"type\":\"string\",\"description\":\"域名\"},\"name\":{\"type\":\"string\",\"description\":\"名称\"},\"type\":{\"type\":\"string\",\"description\":\"类型\"}}},\"description\":\"冲突记录的列表\"}},\"required\":[\"has_conflict\",\"list\"]}}}"
-      },
-      {
-        "query_path": {
-          "path": "/resource-record/:id",
-          "params": []
-        },
-        "edit_uid": 0,
-        "status": "done",
-        "type": "var",
-        "req_body_is_json_schema": true,
-        "res_body_is_json_schema": true,
-        "api_opened": false,
-        "index": 1,
-        "tag": [],
-        "_id": 1571,
-        "method": "PUT",
-        "catid": 171,
-        "title": "修改DNS资源记录",
-        "path": "/resource-record/:id",
-        "project_id": 23,
-        "req_params": [
-          {
-            "_id": "60a2440afbc09c33df95e00e",
-            "name": "id",
-            "example": "60a241d9b63d09d5b6f0b5bd",
-            "desc": ""
-          }
-        ],
-        "res_body_type": "json",
-        "uid": 19,
-        "add_time": 1621246764,
-        "up_time": 1621246986,
-        "req_query": [],
-        "req_headers": [
-          {
-            "required": "1",
-            "_id": "60a2440afbc09cd4a495e00f",
-            "name": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "req_body_form": [],
-        "__v": 0,
-        "desc": "<h4>参数规则参考创建接口</h4>\n<pre><code data-language=\"curl\" class=\"lang-curl\">curl --location --request PUT '{dns-api-host}/resource-record/60a241d9b63d09d5b6f0b5bd' \\\n--header 'Content-Type: application/json' \\\n--data-raw '{\n    \"domain\": \"foreverland.xyz\",\n    \"name\": \"@\",\n    \"type\": \"A\",\n    \"value\": \"8.8.4.4\",\n    \"ttl\": 600,\n    \"priorty\": 10\n}'\n</code></pre>\n<pre><code data-language=\"json\" class=\"lang-json\">{\n    \"code\": 0,\n    \"msg\": \"成功\",\n    \"data\": {}\n}\n</code></pre>\n",
-        "markdown": "#### 参数规则参考创建接口\n\n``` curl\ncurl --location --request PUT '{dns-api-host}/resource-record/60a241d9b63d09d5b6f0b5bd' \\\n--header 'Content-Type: application/json' \\\n--data-raw '{\n    \"domain\": \"foreverland.xyz\",\n    \"name\": \"@\",\n    \"type\": \"A\",\n    \"value\": \"8.8.4.4\",\n    \"ttl\": 600,\n    \"priorty\": 10\n}'\n```\n\n``` json\n{\n    \"code\": 0,\n    \"msg\": \"成功\",\n    \"data\": {}\n}\n```",
-        "req_body_other": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"domain\":{\"type\":\"string\",\"description\":\"域名\"},\"name\":{\"type\":\"string\",\"description\":\"名称\"},\"type\":{\"type\":\"string\",\"description\":\"类型\"},\"value\":{\"type\":\"object\",\"properties\":{},\"description\":\"值\"},\"ttl\":{\"type\":\"number\",\"description\":\"缓存时间(秒)\"},\"priorty\":{\"type\":\"number\",\"description\":\"优先级\"}},\"required\":[\"domain\",\"name\",\"type\",\"value\",\"ttl\"]}",
-        "req_body_type": "json",
-        "res_body": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"code\":{\"type\":\"number\"},\"msg\":{\"type\":\"string\"},\"data\":{\"type\":\"object\",\"properties\":{},\"required\":[]}},\"required\":[\"code\"]}"
-      },
-      {
-        "query_path": {
-          "path": "/resource-records",
-          "params": []
-        },
-        "edit_uid": 0,
-        "status": "done",
-        "type": "static",
-        "req_body_is_json_schema": true,
-        "res_body_is_json_schema": true,
-        "api_opened": false,
-        "index": 2,
-        "tag": [],
-        "_id": 1507,
-        "method": "POST",
-        "catid": 171,
-        "title": "创建DNS资源记录",
-        "path": "/resource-records",
-        "project_id": 23,
-        "req_params": [],
-        "res_body_type": "json",
-        "uid": 19,
-        "add_time": 1620884862,
-        "up_time": 1630288536,
-        "req_query": [],
-        "req_headers": [
-          {
-            "required": "1",
-            "_id": "612c3a982d68f9daae8ac63c",
-            "name": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "req_body_form": [],
-        "__v": 0,
-        "desc": "<h4>请求参数 name</h4>\n<ul>\n<li>参数验证规则<br>\n字符串完全匹配 <strong>@</strong> 或者 *****<br>\n*只允许在首位、和\"*\"后面只允许跟\".\"<br>\n值不能以\\“.\"、\\“-\"开头或结尾 主机记录（RR）值不能以\"符号\"单独存在。 主机记录（RR）值不能有连续的\".\"。 .分割的每个字符串长度不能超过63字符<br>\n其他可用字符a-z、A-Z、0-9、'-' 、'_' 、'.'</li>\n<li>剔除掉 *.和@和*以后可使用正则进行验证</li>\n</ul>\n<pre><code>^([a-zA-Z0-9_]{1}[a-zA-Z0-9_-]{0,62}){1}(\\\\.[a-zA-Z0-9_]{1}[a-zA-Z0-9_-]{0,62})*[\\\\._]?$\n</code></pre>\n<h4>请求参数 value</h4>\n<ul>\n<li>value是必填的可变参数 跟随type变化</li>\n</ul>\n<table>\n<thead>\n<tr>\n<th align=\"left\">记录类型</th>\n<th>值类型</th>\n<th>值</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td align=\"left\">A</td>\n<td>String</td>\n<td>IPV4 Address</td>\n</tr>\n<tr>\n<td align=\"left\">AAAA</td>\n<td>String</td>\n<td>IPV6 Address</td>\n</tr>\n<tr>\n<td align=\"left\">CNAME</td>\n<td>String</td>\n<td>域名</td>\n</tr>\n<tr>\n<td align=\"left\">MX</td>\n<td>String</td>\n<td>域名</td>\n</tr>\n<tr>\n<td align=\"left\">TXT</td>\n<td>String</td>\n<td>长度最大为512位的文本</td>\n</tr>\n<tr>\n<td align=\"left\">SRV</td>\n<td>Object {<br data-tomark-pass=\"\">\"port\": 5050,<br data-tomark-pass=\"\">\"weight\": 10,<br data-tomark-pass=\"\">\"target\": \"foreverland.xyz\"<br data-tomark-pass=\"\">}</td>\n<td>port 端口号 uint16<br data-tomark-pass=\"\">weight 权重 uint16<br data-tomark-pass=\"\">target 目标地址 域名</td>\n</tr>\n<tr>\n<td align=\"left\">CAA</td>\n<td>Object {<br data-tomark-pass=\"\">\"flags\": 0,<br data-tomark-pass=\"\">\"tag\": \"issue\"<br data-tomark-pass=\"\">\"value\": \"\"example.com\"\"<br data-tomark-pass=\"\">}</td>\n<td>flags 认证机构限制标志 值为0或128<br data-tomark-pass=\"\">tag 证书属性标签 ^[a-z0-9]{1,15}$&nbsp;<br data-tomark-pass=\"\">value 证书颁发机构域名、策略违规报告邮件地址等信息 例 \"example.com\" / \"ca.example.com\" / \"mailto:mailto:admin@example.com\" 验证规则: ^\"[0-9a-zA-Z*-_~=:;.@+/! ^?]{1,235}\"$</td>\n</tr>\n</tbody>\n</table>\n<pre><code data-language=\"curl\" class=\"lang-curl\">curl --location --request POST '{dns-api-host}/resource-records' \\\n--header 'Content-Type: application/json' \\\n--data-raw '{\n    \"domain\": \"foreverland.xyz\",\n    \"name\": \"@\",\n    \"type\": \"A\",\n    \"value\": \"8.8.8.8\",\n    \"ttl\": 60,\n    \"priorty\": 10\n}'\n</code></pre>\n<pre><code data-language=\"json\" class=\"lang-json\">{\n    \"code\": 0,\n    \"msg\": \"成功\",\n    \"data\": {\n        \"id\": \"60a230ace65f30eeb2c497a8\"\n    }\n}\n</code></pre>\n",
-        "markdown": "#### 请求参数 name\n\n* 参数验证规则\n字符串完全匹配 **@** 或者 \\*\\*\\*\\*\\*\n\\*只允许在首位、和\"\\*\"后面只允许跟\"\\.\"\n值不能以\\“.\"、\\“-\"开头或结尾 主机记录（RR）值不能以\"符号\"单独存在。 主机记录（RR）值不能有连续的\".\"。 .分割的每个字符串长度不能超过63字符\n其他可用字符a-z、A-Z、0-9、'-' 、'_' 、'.'\n* 剔除掉 \\*\\.和@和\\*以后可使用正则进行验证\n\n```\n^([a-zA-Z0-9_]{1}[a-zA-Z0-9_-]{0,62}){1}(\\\\.[a-zA-Z0-9_]{1}[a-zA-Z0-9_-]{0,62})*[\\\\._]?$\n```\n\n#### 请求参数 value\n\n* value是必填的可变参数 跟随type变化\n\n| 记录类型 | 值类型 | 值 |\n| :--- | --- | --- |\n| A | String | IPV4 Address |\n| AAAA | String | IPV6 Address |\n| CNAME | String | 域名 |\n| MX | String | 域名 |\n| TXT | String | 长度最大为512位的文本 |\n| SRV | Object {<br>\"port\": 5050,<br>\"weight\": 10,<br>\"target\": \"foreverland.xyz\"<br>} | port 端口号 uint16<br>weight 权重 uint16<br>target 目标地址 域名 |\n| CAA | Object {<br>\"flags\": 0,<br>\"tag\": \"issue\"<br>\"value\": \"\"example.com\"\"<br>} | flags 认证机构限制标志 值为0或128<br>tag 证书属性标签 ^[a-z0-9]{1,15}$ <br>value 证书颁发机构域名、策略违规报告邮件地址等信息 例 \"example.com\" / \"ca.example.com\" / \"mailto:mailto:admin@example.com\" 验证规则: ^\"[0-9a-zA-Z*-_~=:;.@+/! ^?]{1,235}\"$ |\n\n``` curl\ncurl --location --request POST '{dns-api-host}/resource-records' \\\n--header 'Content-Type: application/json' \\\n--data-raw '{\n    \"domain\": \"foreverland.xyz\",\n    \"name\": \"@\",\n    \"type\": \"A\",\n    \"value\": \"8.8.8.8\",\n    \"ttl\": 60,\n    \"priorty\": 10\n}'\n```\n\n``` json\n{\n    \"code\": 0,\n    \"msg\": \"成功\",\n    \"data\": {\n        \"id\": \"60a230ace65f30eeb2c497a8\"\n    }\n}\n```",
-        "req_body_other": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\",\"description\":\"名称 @ * subdomain\"},\"type\":{\"type\":\"string\",\"description\":\"类型 目前支持(A,AAAA, CNAME, MX, TXT, SRV,  CAA)\"},\"value\":{\"type\":\"string\",\"description\":\"记录值 \"},\"ttl\":{\"type\":\"integer\",\"description\":\"缓存时间(秒)\"},\"domain\":{\"type\":\"string\",\"description\":\"域名 国际化域名Punycode编码后提交\"},\"priority\":{\"type\":\"integer\",\"description\":\"优先级 uint16 SRV与MX类型可用\"}},\"required\":[\"name\",\"type\",\"ttl\",\"value\",\"domain\"]}",
-        "req_body_type": "json",
-        "res_body": "{\"type\":\"object\",\"title\":\"title\",\"properties\":{}}"
-      },
-      {
-        "query_path": {
-          "path": "/resource-record/:id",
-          "params": []
-        },
-        "edit_uid": 0,
-        "status": "done",
-        "type": "var",
-        "req_body_is_json_schema": true,
-        "res_body_is_json_schema": true,
-        "api_opened": false,
-        "index": 3,
-        "tag": [],
-        "_id": 1539,
-        "method": "GET",
-        "catid": 171,
-        "title": "获取单条资源记录",
-        "path": "/resource-record/:id",
-        "project_id": 23,
-        "req_params": [
-          {
-            "_id": "60a224bffbc09c6a6595dffb",
-            "name": "id",
-            "example": "609e2e53128ed1de2c981005",
-            "desc": ""
-          }
-        ],
-        "res_body_type": "json",
-        "uid": 19,
-        "add_time": 1621238094,
-        "up_time": 1621238975,
-        "req_query": [],
-        "req_headers": [],
-        "req_body_form": [],
-        "__v": 0,
-        "desc": "<pre><code data-language=\"curl\" class=\"lang-curl\">curl --location --request GET '{dns_api_host}/resource-record/609e2e53128ed1de2c981005'\n</code></pre>\n<pre><code data-language=\"json\" class=\"lang-json\">{\n    \"code\": 0,\n    \"msg\": \"成功\",\n    \"data\": {\n        \"id\": \"609e2e53128ed1de2c981005\",\n        \"domain\": \"vw.xyz\",\n        \"name\": \"@\",\n        \"type\": \"SRV\",\n        \"value\": {\n            \"weight\": 1,\n            \"port\": 5000,\n            \"target\": \"baidu.com\"\n        },\n        \"value_view\": \"0 1 5000 baidu.com\",\n        \"ttl\": 60,\n        \"priority\": 0,\n        \"created_at\": 1620979283,\n        \"updated_at\": 1620979283\n    }\n}\n</code></pre>\n",
-        "markdown": "``` curl\ncurl --location --request GET '{dns_api_host}/resource-record/609e2e53128ed1de2c981005'\n```\n\n``` json\n{\n    \"code\": 0,\n    \"msg\": \"成功\",\n    \"data\": {\n        \"id\": \"609e2e53128ed1de2c981005\",\n        \"domain\": \"vw.xyz\",\n        \"name\": \"@\",\n        \"type\": \"SRV\",\n        \"value\": {\n            \"weight\": 1,\n            \"port\": 5000,\n            \"target\": \"baidu.com\"\n        },\n        \"value_view\": \"0 1 5000 baidu.com\",\n        \"ttl\": 60,\n        \"priority\": 0,\n        \"created_at\": 1620979283,\n        \"updated_at\": 1620979283\n    }\n}\n```",
-        "res_body": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"code\":{\"type\":\"number\"},\"msg\":{\"type\":\"string\"},\"data\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"domain\":{\"type\":\"string\",\"description\":\"域名\"},\"name\":{\"type\":\"string\",\"description\":\"名称\"},\"type\":{\"type\":\"string\",\"description\":\"类型\"},\"value\":{\"type\":\"object\",\"properties\":{},\"description\":\"值 可变类型 具体参考创建接口备注\"},\"value_view\":{\"type\":\"string\",\"description\":\"值 字符串类型\"},\"ttl\":{\"type\":\"number\",\"description\":\"缓存时间(秒)\"},\"priority\":{\"type\":\"number\",\"description\":\"优先级 uint16 SRV与MX类型可用\"},\"created_at\":{\"type\":\"number\",\"description\":\"创建记录的时间戳\"},\"updated_at\":{\"type\":\"number\",\"description\":\"修改记录的时间戳\"}},\"required\":[\"id\",\"domain\",\"name\",\"type\",\"value\",\"value_view\",\"ttl\",\"created_at\",\"updated_at\"]}},\"required\":[\"code\",\"data\"]}"
-      },
-      {
-        "query_path": {
-          "path": "/resource-records",
-          "params": []
-        },
-        "edit_uid": 0,
-        "status": "done",
-        "type": "static",
-        "req_body_is_json_schema": true,
-        "res_body_is_json_schema": true,
-        "api_opened": false,
-        "index": 4,
-        "tag": [],
-        "_id": 1547,
-        "method": "GET",
-        "catid": 171,
-        "title": "获取资源记录列表",
-        "path": "/resource-records",
-        "project_id": 23,
-        "req_params": [],
-        "res_body_type": "json",
-        "req_query": [
-          {
-            "required": "1",
-            "_id": "60a23499fbc09c131c95e009",
-            "name": "domain",
-            "example": "example.com",
-            "desc": "域名"
-          },
-          {
-            "required": "1",
-            "_id": "60a23499fbc09cf7be95e008",
-            "name": "page_num",
-            "example": "1",
-            "desc": "页码"
-          },
-          {
-            "required": "0",
-            "_id": "60a23499fbc09c610795e007",
-            "name": "page_size",
-            "example": "20",
-            "desc": "页面大小"
-          }
-        ],
-        "req_headers": [],
-        "req_body_form": [],
-        "desc": "<pre><code data-language=\"curl\" class=\"lang-curl\">curl --location --request GET '{dns-api-host}/resource-records?page_num=1&amp;page_size=20&amp;domain=example.com'\n</code></pre>\n<pre><code data-language=\"json\" class=\"lang-json\">{\n    \"code\": 0,\n    \"msg\": \"成功\",\n    \"data\": {\n        \"list\": [\n            {\n                \"id\": \"60a22fdae65f30eeb2c497a7\",\n                \"domain\": \"example.com\",\n                \"name\": \"@\",\n                \"type\": \"A\",\n                \"value\": \"8.8.8.8\",\n                \"value_view\": \"8.8.8.8\",\n                \"ttl\": 60,\n                \"priority\": 0,\n                \"created_at\": 1621241818,\n                \"updated_at\": 1621241818\n            },\n            {\n                \"id\": \"609e2e53128ed1de2c981005\",\n                \"domain\": \"example.com\",\n                \"name\": \"@\",\n                \"type\": \"SRV\",\n                \"value\": {\n                    \"weight\": 1,\n                    \"port\": 5000,\n                    \"target\": \"baidu.com\"\n                },\n                \"value_view\": \"0 1 5000 server.example.com\",\n                \"ttl\": 60,\n                \"priority\": 0,\n                \"created_at\": 1620979283,\n                \"updated_at\": 1620979283\n            }\n        ],\n        \"page\": {\n            \"total_page\": 1,\n            \"current_page\": 1,\n            \"count\": 2\n        }\n    }\n}\n</code></pre>\n",
-        "markdown": "``` curl\ncurl --location --request GET '{dns-api-host}/resource-records?page_num=1&page_size=20&domain=example.com'\n```\n\n``` json\n{\n    \"code\": 0,\n    \"msg\": \"成功\",\n    \"data\": {\n        \"list\": [\n            {\n                \"id\": \"60a22fdae65f30eeb2c497a7\",\n                \"domain\": \"example.com\",\n                \"name\": \"@\",\n                \"type\": \"A\",\n                \"value\": \"8.8.8.8\",\n                \"value_view\": \"8.8.8.8\",\n                \"ttl\": 60,\n                \"priority\": 0,\n                \"created_at\": 1621241818,\n                \"updated_at\": 1621241818\n            },\n            {\n                \"id\": \"609e2e53128ed1de2c981005\",\n                \"domain\": \"example.com\",\n                \"name\": \"@\",\n                \"type\": \"SRV\",\n                \"value\": {\n                    \"weight\": 1,\n                    \"port\": 5000,\n                    \"target\": \"baidu.com\"\n                },\n                \"value_view\": \"0 1 5000 server.example.com\",\n                \"ttl\": 60,\n                \"priority\": 0,\n                \"created_at\": 1620979283,\n                \"updated_at\": 1620979283\n            }\n        ],\n        \"page\": {\n            \"total_page\": 1,\n            \"current_page\": 1,\n            \"count\": 2\n        }\n    }\n}\n```",
-        "res_body": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"code\":{\"type\":\"number\"},\"msg\":{\"type\":\"string\"},\"data\":{\"type\":\"object\",\"properties\":{\"list\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"domain\":{\"type\":\"string\",\"description\":\"域名\"},\"name\":{\"type\":\"string\",\"description\":\"名称\"},\"type\":{\"type\":\"string\",\"description\":\"类型\"},\"value\":{\"type\":\"object\",\"properties\":{},\"description\":\"值 可变类型 具体参考创建接口备注\"},\"value_view\":{\"type\":\"string\",\"description\":\"值 字符串类型\"},\"ttl\":{\"type\":\"number\",\"description\":\"缓存时间(秒)\"},\"priority\":{\"type\":\"number\",\"description\":\"优先级 uint16 SRV与MX类型可用\"},\"created_at\":{\"type\":\"number\",\"description\":\"创建记录的时间戳\"},\"updated_at\":{\"type\":\"number\",\"description\":\"修改记录的时间戳\"}},\"required\":[\"id\",\"domain\",\"name\",\"type\",\"value\",\"value_view\",\"ttl\",\"priority\",\"created_at\",\"updated_at\"]}},\"page\":{\"type\":\"object\",\"properties\":{\"total_page\":{\"type\":\"number\",\"description\":\"总页码\"},\"current_page\":{\"type\":\"number\",\"description\":\"当前页码\"},\"count\":{\"type\":\"number\",\"description\":\"总条数\"}},\"required\":[\"total_page\",\"current_page\",\"count\"]}},\"required\":[\"list\",\"page\"]}},\"required\":[\"code\",\"msg\",\"data\"]}",
-        "uid": 19,
-        "add_time": 1621239089,
-        "up_time": 1621243033,
-        "__v": 0
+        "res_body": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"code\":{\"type\":\"number\",\"mock\":{\"mock\":\"200\"},\"description\":\"Web status code\"},\"bcode\":{\"type\":\"number\",\"description\":\"Business code,  10: ok, other:fail\",\"mock\":{\"mock\":\"10|20\"}},\"message\":{\"type\":\"string\",\"description\":\"Show when bCode  is unequal to 10\",\"mock\":{\"mock\":\"@string\"}},\"content\":{\"type\":\"object\",\"properties\":{\"token\":{\"type\":\"string\",\"description\":\"You should use this token for other API which identification-needed\"}},\"description\":\"Data response\",\"required\":[\"token\"]}},\"required\":[\"code\",\"bcode\",\"message\",\"content\"]}"
       }
     ]
   },
   {
     "index": 0,
-    "name": "Rectrd",
+    "name": "Deploy",
     "desc": null,
-    "add_time": 1628775237,
-    "up_time": 1628775237,
+    "add_time": 1635154779,
+    "up_time": 1635154779,
     "list": [
       {
         "query_path": {
-          "path": "/certificate/upload",
+          "path": "/deploy",
           "params": []
         },
         "edit_uid": 0,
@@ -434,158 +80,78 @@
         "type": "static",
         "req_body_is_json_schema": true,
         "res_body_is_json_schema": true,
-        "api_opened": false,
+        "api_opened": true,
         "index": 0,
         "tag": [],
-        "_id": 1875,
+        "_id": 2232,
         "method": "POST",
-        "catid": 371,
-        "title": "上传证书",
-        "path": "/certificate/upload",
-        "project_id": 23,
+        "catid": 511,
+        "title": "cli-user-deploy",
+        "path": "/deploy",
+        "project_id": 102,
         "req_params": [],
         "res_body_type": "json",
-        "uid": 19,
-        "add_time": 1628775270,
-        "up_time": 1628775369,
+        "uid": 60,
+        "add_time": 1635156611,
+        "up_time": 1638437511,
         "req_query": [],
         "req_headers": [
           {
             "required": "1",
-            "_id": "611523c92d68f9bdd38ac54a",
+            "_id": "61a89287c2be99be4331a59b",
             "name": "Content-Type",
-            "value": "application/json"
+            "value": "multipart/form-data"
           },
           {
             "required": "1",
-            "_id": "611523c92d68f999978ac549",
-            "name": "x-request-from",
-            "value": "inner",
+            "_id": "61a89287c2be99499031a59a",
+            "name": "Accept-Version",
+            "value": "1.0",
+            "example": "1.0"
+          },
+          {
+            "required": "1",
+            "_id": "61a89287c2be992bb331a599",
+            "name": "token",
             "example": "",
-            "desc": ""
-          }
-        ],
-        "req_body_form": [],
-        "__v": 0,
-        "desc": "",
-        "markdown": "",
-        "req_body_other": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"domain\":{\"type\":\"string\"},\"privateKey\":{\"type\":\"string\"},\"certificate\":{\"type\":\"string\"},\"issuerCertificate\":{\"type\":\"string\"}},\"required\":[\"domain\",\"privateKey\",\"certificate\",\"issuerCertificate\"]}",
-        "req_body_type": "json",
-        "res_body": "{\"type\":\"object\",\"title\":\"title\",\"properties\":{}}"
-      },
-      {
-        "query_path": {
-          "path": "/certificate/renew/text-record",
-          "params": []
-        },
-        "edit_uid": 0,
-        "status": "done",
-        "type": "static",
-        "req_body_is_json_schema": true,
-        "res_body_is_json_schema": true,
-        "api_opened": false,
-        "index": 0,
-        "tag": [],
-        "_id": 1891,
-        "method": "DELETE",
-        "catid": 371,
-        "title": "删除text记录",
-        "path": "/certificate/renew/text-record",
-        "project_id": 23,
-        "req_params": [],
-        "res_body_type": "json",
-        "uid": 11,
-        "add_time": 1630052932,
-        "up_time": 1630052973,
-        "req_query": [
-          {
-            "required": "1",
-            "_id": "6128a26d2d68f99f9a8ac634",
-            "name": "id",
-            "desc": "record id"
-          }
-        ],
-        "req_headers": [
-          {
-            "required": "1",
-            "_id": "6128a26d2d68f91a748ac635",
-            "name": "Content-Type",
-            "value": "application/x-www-form-urlencoded"
-          }
-        ],
-        "req_body_form": [],
-        "__v": 0,
-        "desc": "",
-        "markdown": "",
-        "req_body_type": "form",
-        "res_body": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"code\":{\"type\":\"number\"},\"message\":{\"type\":\"string\"}}}"
-      },
-      {
-        "query_path": {
-          "path": "/certificate/renew/text-record",
-          "params": []
-        },
-        "edit_uid": 0,
-        "status": "done",
-        "type": "static",
-        "req_body_is_json_schema": true,
-        "res_body_is_json_schema": true,
-        "api_opened": false,
-        "index": 0,
-        "tag": [],
-        "_id": 1890,
-        "method": "POST",
-        "catid": 371,
-        "title": "更新text记录",
-        "path": "/certificate/renew/text-record",
-        "project_id": 23,
-        "req_params": [],
-        "res_body_type": "json",
-        "uid": 11,
-        "add_time": 1630052816,
-        "up_time": 1630053718,
-        "req_query": [],
-        "req_headers": [
-          {
-            "required": "1",
-            "_id": "6128a5562d68f96fb58ac638",
-            "name": "Content-Type",
-            "value": "application/x-www-form-urlencoded"
+            "desc": "login token"
           }
         ],
         "req_body_form": [
           {
             "required": "1",
-            "_id": "6128a5562d68f909128ac63b",
-            "name": "domain",
-            "type": "text"
+            "_id": "61a89287c2be99fbbc31a59d",
+            "name": "file",
+            "type": "file",
+            "desc": "The zip file must contain index.html in the root folder."
           },
           {
             "required": "1",
-            "_id": "6128a5562d68f9cb728ac63a",
-            "name": "name",
+            "_id": "61a89287c2be99e9ef31a59c",
+            "name": "projectId",
             "type": "text",
             "example": "",
-            "desc": "subdomain"
-          },
-          {
-            "required": "1",
-            "_id": "6128a5562d68f955128ac639",
-            "name": "value",
-            "type": "text",
-            "example": "",
-            "desc": ""
+            "desc": "A character string from cli-user-project-list"
           }
         ],
         "__v": 0,
-        "desc": "",
-        "markdown": "",
+        "desc": "<h3>curl:</h3>\n<pre><code>curl -L -X POST 'https://cli.4everland.org/deploy' \\\n-H 'token: xxxx' \\\n-H 'Accept-Version: 1.0' \\\n-F 'file=@\"/path/to/ipfs.zip\"'\n-F 'projectId=61a6e99088b02d0001344792'\n</code></pre>\n<h3>response:</h3>\n<pre><code>{\n    \"code\":200,\n    \"message\":\"\",\n    \"bcode\":10,\n    \"content\":{\n        \"domainList\":[\n            \"domain-a.com\",\n            \"domain-b.com\",\n            \"domain-c.com\"\n        ],\n        \"fileHash\":\"ababababFababiableababHabasababh\"\n    }\n}\n</code></pre>\n",
+        "markdown": "### curl:\n\n```\ncurl -L -X POST 'https://cli.4everland.org/deploy' \\\n-H 'token: xxxx' \\\n-H 'Accept-Version: 1.0' \\\n-F 'file=@\"/path/to/ipfs.zip\"'\n-F 'projectId=61a6e99088b02d0001344792'\n```\n\n### response:\n\n```\n{\n    \"code\":200,\n    \"message\":\"\",\n    \"bcode\":10,\n    \"content\":{\n        \"domainList\":[\n            \"domain-a.com\",\n            \"domain-b.com\",\n            \"domain-c.com\"\n        ],\n        \"fileHash\":\"ababababFababiableababHabasababh\"\n    }\n}\n```",
         "req_body_type": "form",
-        "res_body": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"code\":{\"type\":\"number\"},\"message\":{\"type\":\"string\"},\"data\":{\"type\":\"string\",\"description\":\"record id\"}}}"
-      },
+        "res_body": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"code\":{\"type\":\"number\",\"mock\":{\"mock\":\"200\"},\"description\":\"Web status code\"},\"bcode\":{\"type\":\"number\",\"mock\":{\"mock\":\"10|20\"},\"description\":\"Business code,  10: ok, other:fail\"},\"message\":{\"type\":\"string\",\"description\":\"Show when bCode  is unequal to 10\"},\"content\":{\"type\":\"object\",\"properties\":{\"fileHash\":{\"type\":\"string\",\"mock\":{\"mock\":\"6a204bd89f3c8348afd5c77c717a097a\"},\"description\":\"This character string is unique.\"},\"domainList\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"mock\":{\"mock\":\"@domain\"}},\"description\":\"All domain binded into the deployed project will be showed on domainList\"}},\"required\":[\"fileHash\",\"domainList\"],\"description\":\"Data response\"}},\"required\":[]}"
+      }
+    ]
+  },
+  {
+    "index": 0,
+    "name": "Projects",
+    "desc": null,
+    "add_time": 1635154788,
+    "up_time": 1635154788,
+    "list": [
       {
         "query_path": {
-          "path": "/certificate/renew",
+          "path": "/project",
           "params": []
         },
         "edit_uid": 0,
@@ -593,38 +159,197 @@
         "type": "static",
         "req_body_is_json_schema": true,
         "res_body_is_json_schema": true,
-        "api_opened": false,
+        "api_opened": true,
         "index": 0,
         "tag": [],
-        "_id": 1889,
+        "_id": 2256,
+        "method": "POST",
+        "catid": 517,
+        "title": "cli-user-create-remote-project",
+        "path": "/project",
+        "project_id": 102,
+        "req_params": [],
+        "res_body_type": "json",
+        "uid": 60,
+        "add_time": 1635157292,
+        "up_time": 1638437485,
+        "req_query": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61a8926dc2be99315431a593",
+            "name": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          },
+          {
+            "required": "1",
+            "_id": "61a8926dc2be99859231a592",
+            "name": "Accept-Version",
+            "value": "1.0"
+          },
+          {
+            "required": "1",
+            "_id": "61a8926dc2be9934b731a591",
+            "name": "token",
+            "example": "",
+            "desc": ""
+          }
+        ],
+        "req_body_form": [
+          {
+            "required": "1",
+            "_id": "61a8926dc2be99f52631a594",
+            "name": "projectName",
+            "type": "text",
+            "desc": "project name"
+          }
+        ],
+        "__v": 0,
+        "desc": "<h3>curl:</h3>\n<pre><code>curl -L -X POST 'https://cli.4everland.org/project' \\\n-H 'Accept-Version: 1.0' \\\n-H 'token: xxx' \\\n-F 'projectName=\"cli\"'\n</code></pre>\n<h3>response:</h3>\n<pre><code>{\n    \"code\": 200,\n    \"message\": \"\",\n    \"bcode\": 10,\n    \"content\": {\n        \"projectId\": \"pCrhSaroatcrjtierencgt\"\n    }\n}\n</code></pre>\n",
+        "markdown": "### curl:\n\n```\ncurl -L -X POST 'https://cli.4everland.org/project' \\\n-H 'Accept-Version: 1.0' \\\n-H 'token: xxx' \\\n-F 'projectName=\"cli\"'\n```\n\n### response:\n\n```\n{\n    \"code\": 200,\n    \"message\": \"\",\n    \"bcode\": 10,\n    \"content\": {\n        \"projectId\": \"pCrhSaroatcrjtierencgt\"\n    }\n}\n```",
+        "req_body_type": "form",
+        "res_body": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"code\":{\"type\":\"number\",\"mock\":{\"mock\":\"200\"},\"description\":\"Web status code\"},\"bcode\":{\"type\":\"number\",\"mock\":{\"mock\":\"10|20\"},\"description\":\"Business code,  10: ok, other:fail\"},\"message\":{\"type\":\"string\",\"mock\":{\"mock\":\"@string\"},\"description\":\"Show when bCode  is unequal to 10\"},\"content\":{\"type\":\"object\",\"properties\":{\"projectId\":{\"type\":\"string\",\"mock\":{\"mock\":\"@string\"},\"description\":\"The unique character string of the project you created\"}},\"required\":[],\"description\":\"Data response\"}},\"required\":[]}"
+      },
+      {
+        "query_path": {
+          "path": "/project/{page}",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": true,
+        "index": 0,
+        "tag": [],
+        "_id": 2264,
         "method": "GET",
-        "catid": 371,
-        "title": "更新证书",
-        "path": "/certificate/renew",
-        "project_id": 23,
-        "req_params": [],
+        "catid": 517,
+        "title": "cli-user-project-list",
+        "path": "/project/{page}",
+        "project_id": 102,
+        "req_params": [
+          {
+            "_id": "61a8927ac2be99df9e31a595",
+            "name": "page",
+            "example": "1",
+            "desc": "页码"
+          }
+        ],
         "res_body_type": "json",
-        "uid": 11,
-        "add_time": 1630030875,
-        "up_time": 1630053694,
+        "uid": 60,
+        "add_time": 1635157354,
+        "up_time": 1638437498,
         "req_query": [
           {
             "required": "1",
-            "_id": "6128a53e2d68f9bf3b8ac637",
-            "name": "domain",
+            "_id": "61a8927ac2be99190b31a596",
+            "name": "pageSize",
+            "desc": "单页长度，默认10"
+          }
+        ],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61a8927ac2be99c2bf31a598",
+            "name": "token",
+            "value": ""
+          },
+          {
+            "required": "1",
+            "_id": "61a8927ac2be99039831a597",
+            "name": "Accept-Version",
+            "value": "1.0",
+            "example": "",
             "desc": ""
           }
         ],
-        "req_headers": [],
         "req_body_form": [],
         "__v": 0,
-        "desc": "",
-        "markdown": "",
-        "res_body": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"code\":{\"type\":\"number\"},\"data\":{\"type\":\"string\",\"description\":\"challenge type; http-01 or dns-01\"}}}"
+        "desc": "<h3>curl:</h3>\n<pre><code>curl -L -X GET 'https://cli.4everland.org/project/1' \\\n-H 'Accept-Version: 1.0' \\\n-H 'token: xxx'\n</code></pre>\n<h3>response:</h3>\n<pre><code>{\n    \"code\": 200,\n    \"message\": \"\",\n    \"bcode\": 10,\n    \"content\": {\n        \"count\": 20,\n        \"list\": [\n            {\n                \"name\": \"a-project\",\n                \"isCli\": false,\n                \"projectId\": \"pCrHhaaroajeschcttIedr\",\n                \"createAt\": 1234567890\n            }\n        ]\n    }\n}\n</code></pre>\n",
+        "markdown": "### curl:\n\n```\ncurl -L -X GET 'https://cli.4everland.org/project/1' \\\n-H 'Accept-Version: 1.0' \\\n-H 'token: xxx'\n```\n\n### response:\n\n```\n{\n    \"code\": 200,\n    \"message\": \"\",\n    \"bcode\": 10,\n    \"content\": {\n        \"count\": 20,\n        \"list\": [\n            {\n                \"name\": \"a-project\",\n                \"isCli\": false,\n                \"projectId\": \"pCrHhaaroajeschcttIedr\",\n                \"createAt\": 1234567890\n            }\n        ]\n    }\n}\n```",
+        "res_body": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"code\":{\"type\":\"number\",\"mock\":{\"mock\":\"200\"},\"description\":\"Web status code\"},\"bcode\":{\"type\":\"number\",\"mock\":{\"mock\":\"10|20\"},\"description\":\"Business code,  10: ok, other:fail\"},\"message\":{\"type\":\"string\",\"mock\":{\"mock\":\"@string\"},\"description\":\"Show when bCode  is unequal to 10\"},\"content\":{\"type\":\"object\",\"properties\":{\"list\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"projectId\":{\"type\":\"string\",\"mock\":{\"mock\":\"@string\"},\"description\":\"Unique character string of project you created\"},\"name\":{\"type\":\"string\",\"mock\":{\"mock\":\"@string\"},\"description\":\"Project Name\"},\"createdAt\":{\"type\":\"string\",\"mock\":{\"mock\":\"@date\"},\"description\":\"Timestamp of the date the project created\"},\"isCli\":{\"type\":\"boolean\",\"mock\":{\"mock\":\"@boolean\"},\"description\":\"Whether created by CLI\"}},\"required\":[\"projectId\",\"createdAt\",\"name\",\"isCli\"]}},\"count\":{\"type\":\"number\",\"description\":\"count of all data\"}},\"required\":[\"list\",\"count\"],\"description\":\"Data response\"}},\"required\":[\"code\",\"bcode\",\"message\",\"content\"]}"
+      }
+    ]
+  },
+  {
+    "index": 0,
+    "name": "Domains",
+    "desc": null,
+    "add_time": 1635154792,
+    "up_time": 1635154792,
+    "list": [
+      {
+        "query_path": {
+          "path": "/domain/{projectId}",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": true,
+        "index": 0,
+        "tag": [],
+        "_id": 2280,
+        "method": "POST",
+        "catid": 523,
+        "title": "cli-user-domain-add",
+        "path": "/domain/{projectId}",
+        "project_id": 102,
+        "req_params": [
+          {
+            "_id": "61a892f8c2be998f3e31a5a1",
+            "name": "projectId",
+            "desc": "Identity of the binded project"
+          }
+        ],
+        "res_body_type": "json",
+        "uid": 60,
+        "add_time": 1635217762,
+        "up_time": 1638437624,
+        "req_query": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61a892f8c2be99f72a31a5a4",
+            "name": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          },
+          {
+            "required": "1",
+            "_id": "61a892f8c2be99eceb31a5a3",
+            "name": "Accept-Version",
+            "value": "1.0"
+          },
+          {
+            "required": "1",
+            "_id": "61a892f8c2be99724131a5a2",
+            "name": "token",
+            "example": "",
+            "desc": ""
+          }
+        ],
+        "req_body_form": [
+          {
+            "required": "1",
+            "_id": "61a892f8c2be99994e31a5a5",
+            "name": "domain",
+            "type": "text",
+            "example": "www.baidu.com"
+          }
+        ],
+        "__v": 0,
+        "desc": "<h3>curl:</h3>\n<pre><code>curl -L -X POST 'https://cli.4everland.org/domain/618b24dcb396bd0001247ed0' \\\n-H 'Accept-Version: 1.0' \\\n-H 'token: xxx' \\\n-F 'domain=\"www.domain.local\"'\n</code></pre>\n<h3>response:</h3>\n<pre><code>{\n    \"code\":200,\n    \"message\":\"\",\n    \"bcode\":10,\n    \"content\":{\n        \"domainId\":\"dCHomharainIaacdteshr\"\n    }\n}\n</code></pre>\n",
+        "markdown": "### curl:\n\n```\ncurl -L -X POST 'https://cli.4everland.org/domain/618b24dcb396bd0001247ed0' \\\n-H 'Accept-Version: 1.0' \\\n-H 'token: xxx' \\\n-F 'domain=\"www.domain.local\"'\n```\n\n### response:\n\n```\n{\n    \"code\":200,\n    \"message\":\"\",\n    \"bcode\":10,\n    \"content\":{\n        \"domainId\":\"dCHomharainIaacdteshr\"\n    }\n}\n```",
+        "req_body_type": "form",
+        "res_body": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"code\":{\"type\":\"number\",\"mock\":{\"mock\":\"200\"},\"description\":\"Web status code\"},\"bcode\":{\"type\":\"number\",\"mock\":{\"mock\":\"10|20\"},\"description\":\"Business code,  10: ok, other:fail\"},\"message\":{\"type\":\"string\",\"mock\":{\"mock\":\"@string\"},\"description\":\"Show when bCode  is unequal to 10\"},\"content\":{\"type\":\"object\",\"properties\":{\"domainId\":{\"type\":\"string\",\"mock\":{\"mock\":\"@string\"},\"description\":\"Unique character string.\"}},\"required\":[\"domainId\"],\"description\":\"Data response\"}},\"required\":[]}"
       },
       {
         "query_path": {
-          "path": "/certificates",
+          "path": "/domain/examination",
           "params": []
         },
         "edit_uid": 0,
@@ -632,51 +357,109 @@
         "type": "static",
         "req_body_is_json_schema": true,
         "res_body_is_json_schema": true,
-        "api_opened": false,
+        "api_opened": true,
         "index": 0,
         "tag": [],
-        "_id": 1876,
-        "method": "POST",
-        "catid": 371,
-        "title": "申请证书",
-        "path": "/certificates",
-        "project_id": 23,
+        "_id": 2248,
+        "method": "GET",
+        "catid": 523,
+        "title": "cli-user-domain-check",
+        "path": "/domain/examination",
+        "project_id": 102,
         "req_params": [],
         "res_body_type": "json",
-        "uid": 19,
-        "add_time": 1628775401,
-        "up_time": 1628775550,
-        "req_query": [],
+        "uid": 60,
+        "add_time": 1635157214,
+        "up_time": 1638437476,
+        "req_query": [
+          {
+            "required": "1",
+            "_id": "61a89264c2be99bff131a58e",
+            "name": "domainId",
+            "example": "617769cb1db66200010616b0",
+            "desc": "from cli-user-domain-list.content.list[].domainId"
+          }
+        ],
         "req_headers": [
           {
             "required": "1",
-            "_id": "611524742d68f9b0608ac551",
-            "name": "Content-Type",
-            "value": "application/x-www-form-urlencoded"
-          }
-        ],
-        "req_body_form": [
-          {
-            "required": "1",
-            "_id": "611524742d68f97c2d8ac553",
-            "name": "domain",
-            "type": "text",
-            "example": "example.com"
+            "_id": "61a89264c2be99a61c31a590",
+            "name": "Accept-Version",
+            "value": "1.0"
           },
           {
             "required": "1",
-            "_id": "611524742d68f9cd538ac552",
-            "name": "challenge_type",
-            "type": "text",
-            "example": "http-01 ",
-            "desc": "http-01/dns-01/tls-alpn-01"
+            "_id": "61a89264c2be9912c031a58f",
+            "name": "token",
+            "example": "",
+            "desc": ""
           }
         ],
+        "req_body_form": [],
         "__v": 0,
-        "desc": "",
-        "markdown": "",
-        "req_body_type": "form",
-        "res_body": ""
+        "desc": "<h3>curl:</h3>\n<pre><code>curl -L -X GET 'https://cli.4everland.org/domain/examination?domainId=618d0108610d500001f5fdc4' \\\n-H 'Accept-Version: 1.0' \\\n-H 'token: xxx'\n</code></pre>\n<h3>response:</h3>\n<pre><code>{\n    \"code\": 200,\n    \"message\": \"\",\n    \"bcode\": 10,\n    \"content\": {\n        \"Success\": false\n    }\n}\n</code></pre>\n",
+        "markdown": "### curl:\n\n```\ncurl -L -X GET 'https://cli.4everland.org/domain/examination?domainId=618d0108610d500001f5fdc4' \\\n-H 'Accept-Version: 1.0' \\\n-H 'token: xxx'\n```\n\n### response:\n\n```\n{\n    \"code\": 200,\n    \"message\": \"\",\n    \"bcode\": 10,\n    \"content\": {\n        \"Success\": false\n    }\n}\n```",
+        "res_body": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"code\":{\"type\":\"number\",\"mock\":{\"mock\":\"200\"},\"description\":\"Web status code\"},\"bcode\":{\"type\":\"number\",\"mock\":{\"mock\":\"10|20\"},\"description\":\"Business code,  10: ok, other:fail\"},\"message\":{\"type\":\"string\",\"mock\":{\"mock\":\"@string\"},\"description\":\"Show when bCode  is unequal to 10\"},\"content\":{\"type\":\"object\",\"properties\":{\"Success\":{\"type\":\"boolean\",\"description\":\"Result\"}},\"required\":[],\"description\":\"Data response\"}},\"required\":[]}"
+      },
+      {
+        "query_path": {
+          "path": "/domain/{page}",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": true,
+        "index": 0,
+        "tag": [],
+        "_id": 2240,
+        "method": "GET",
+        "catid": 523,
+        "title": "cli-user-domain-list",
+        "path": "/domain/{page}",
+        "project_id": 102,
+        "req_params": [
+          {
+            "_id": "61a8925fc2be99494e31a58a",
+            "name": "page",
+            "example": "1",
+            "desc": "页码"
+          }
+        ],
+        "res_body_type": "json",
+        "uid": 60,
+        "add_time": 1635157099,
+        "up_time": 1638437471,
+        "req_query": [
+          {
+            "required": "1",
+            "_id": "61a8925fc2be993ebd31a58b",
+            "name": "pageSize",
+            "desc": "Size of single page, should not exceeded 15"
+          }
+        ],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61a8925fc2be9921d531a58d",
+            "name": "Accept-Version",
+            "value": "1.0"
+          },
+          {
+            "required": "1",
+            "_id": "61a8925fc2be9955e231a58c",
+            "name": "token",
+            "example": "",
+            "desc": ""
+          }
+        ],
+        "req_body_form": [],
+        "__v": 0,
+        "desc": "<h3>curl:</h3>\n<pre><code>curl -L -X GET 'https://cli.4everland.org/domain/1?pageSize=10' \\\n-H 'Accept-Version: 1.0' \\\n-H 'token: xxx'\n</code></pre>\n<h3>response:</h3>\n<pre><code>{\n    \"code\": 200,\n    \"message\": \"\",\n    \"bcode\": 10,\n    \"content\": {\n        \"domainList\": [\n            {\n                \"valid\": false,\n                \"domain\": \"www.domain.com\",\n                \"domainName\": \"domain.com\",\n                \"certificate\": false,\n                \"nameServers\": \"THIRD_PARTY\",\n                \"projectName\": \"a-project\",\n                \"projectId\": \"prCohaHrjeacacsttheIrd\",\n                \"createAt\": 1234567890,\n                \"domainId\": \"CdhaHomraaiacsnthIedr\"\n            }\n        ],\n        \"count\": 1\n    }\n}\n</code></pre>\n",
+        "markdown": "### curl:\n\n```\ncurl -L -X GET 'https://cli.4everland.org/domain/1?pageSize=10' \\\n-H 'Accept-Version: 1.0' \\\n-H 'token: xxx'\n```\n\n### response:\n\n```\n{\n    \"code\": 200,\n    \"message\": \"\",\n    \"bcode\": 10,\n    \"content\": {\n        \"domainList\": [\n            {\n                \"valid\": false,\n                \"domain\": \"www.domain.com\",\n                \"domainName\": \"domain.com\",\n                \"certificate\": false,\n                \"nameServers\": \"THIRD_PARTY\",\n                \"projectName\": \"a-project\",\n                \"projectId\": \"prCohaHrjeacacsttheIrd\",\n                \"createAt\": 1234567890,\n                \"domainId\": \"CdhaHomraaiacsnthIedr\"\n            }\n        ],\n        \"count\": 1\n    }\n}\n```",
+        "res_body": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"code\":{\"type\":\"number\",\"mock\":{\"mock\":\"200\"},\"title\":\"Web status code.\"},\"bcode\":{\"type\":\"number\",\"mock\":{\"mock\":\"10|20\"},\"title\":\"Business code,  10: ok, other:fail.\"},\"message\":{\"type\":\"string\",\"mock\":{\"mock\":\"@string\"},\"title\":\"Show when bCode  is unequal to 10.\"},\"content\":{\"type\":\"object\",\"properties\":{\"list\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"certificate\":{\"type\":\"boolean\",\"mock\":{\"mock\":\"@boolean\"},\"title\":\"Whether certificated.\"},\"createAt\":{\"type\":\"string\",\"mock\":{\"mock\":\"@timestamp\"},\"title\":\"Timestamp of the date the domain created.\"},\"domain\":{\"type\":\"string\",\"mock\":{\"mock\":\"@domain\"},\"title\":\"Domain, e.g. www.domain.com.\"},\"domainId\":{\"type\":\"string\",\"mock\":{\"mock\":\"@string\"},\"title\":\"Unique character string.\"},\"domainName\":{\"type\":\"string\",\"mock\":{\"mock\":\"@domain\"},\"title\":\"Domain name, e.g. domain.com.\"},\"nameServers\":{\"type\":\"string\",\"mock\":{\"mock\":\"@string\"},\"title\":\"Subordination type.\"},\"projectId\":{\"type\":\"string\",\"mock\":{\"mock\":\"@string\"},\"title\":\"The project Binded into.\"},\"projectName\":{\"type\":\"string\",\"mock\":{\"mock\":\"@string\"},\"title\":\"Name of project which binded into.\"},\"valid\":{\"type\":\"boolean\",\"mock\":{\"mock\":\"@boolean\"},\"title\":\"Whether binded successfully.\"}},\"required\":[\"certificate\",\"domain\",\"createAt\",\"nameServers\",\"domainName\",\"domainId\",\"projectName\",\"projectId\",\"valid\"]}},\"count\":{\"type\":\"number\",\"title\":\"All data counts.\"}},\"required\":[\"list\",\"count\"],\"title\":\"Data response.\"}},\"required\":[\"code\",\"bcode\",\"message\",\"content\"]}"
       }
     ]
   }
