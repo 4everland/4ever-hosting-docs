@@ -20,14 +20,14 @@ POST /project
 
 | name | type | required |
 | ---- | ---- | -------- |
-| projectName | text | true |
+| name | text | true |
 
 ### curl:
 
 ```
 curl -L -X POST 'https://cli.4everland.org/project' \
 -H 'Accept-Version: 1.0' \
--H 'token: xxx' \
+-H 'token:eyJ0eXAiOiJKV1QiLCJhbGc***tx60gDRzH37majqSgZ2dg' \
 -F 'projectName="cli"'
 ```
 
@@ -70,7 +70,7 @@ GET /project/{page}
 ```
 curl -L -X GET 'https://cli.4everland.org/project/1' \
 -H 'Accept-Version: 1.0' \
--H 'token: xxx'
+-H 'token:eyJ0eXAiOiJKV1QiLCJhbGc***tx60gDRzH37majqSgZ2dg'
 ```
 
 ### response:

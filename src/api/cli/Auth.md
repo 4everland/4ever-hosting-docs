@@ -21,7 +21,7 @@ POST /login
 ```
 curl -L -X POST 'https://cli.4everland.org/login' \
 -H 'Accept-Version: 1.0' \
--H 'token: xxxx'
+-H 'token:eyJ0eXAiOiJKV1QiLCJhbG***60gDRzH37majqSgZ2dg'
 ```
 
 ### response

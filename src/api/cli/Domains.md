@@ -12,7 +12,7 @@ POST /domain/{projectId}
 
 | name | value | required |
 | ---- | ----- | -------- |
-| Content-Type | application/x-www-form-urlencoded | true |
+| Content-Type | application/json | true |
 | Accept-Version | 1.0 | true |
 | token |  | true |
 
@@ -25,10 +25,11 @@ POST /domain/{projectId}
 ### curl:
 
 ```
-curl -L -X POST 'https://cli.4everland.org/domain/618b24dcb396bd0001247ed0' \
+curl -L -X POST 'https://cli.4everland.org/domain/618b24***47ed0' \
 -H 'Accept-Version: 1.0' \
--H 'token: xxx' \
--F 'domain="www.domain.local"'
+-H 'token:eyJ0eXAiOiJKV1QiLCJhbGc***tx60gDRzH37majqSgZ2dg' \
+-H 'Content-Type: application/json' \
+--data-raw '{"domain":"www.forev***and.org"}'
 ```
 
 ### response:
@@ -68,9 +69,9 @@ GET /domain/examination
 ### curl:
 
 ```
-curl -L -X GET 'https://cli.4everland.org/domain/examination?domainId=618d0108610d500001f5fdc4' \
+curl -L -X GET 'https://cli.4everland.org/domain/examination?domainId=618d0108***1f5fdc4' \
 -H 'Accept-Version: 1.0' \
--H 'token: xxx'
+-H 'token:eyJ0eXAiOiJKV1QiLCJhbGc***tx60gDRzH37majqSgZ2dg'
 ```
 
 ### response:
@@ -112,7 +113,7 @@ GET /domain/{page}
 ```
 curl -L -X GET 'https://cli.4everland.org/domain/1?pageSize=10' \
 -H 'Accept-Version: 1.0' \
--H 'token: xxx'
+-H 'token:eyJ0eXAiOiJKV1QiLCJhbGc***tx60gDRzH37majqSgZ2dg'
 ```
 
 ### response:
@@ -131,7 +132,7 @@ curl -L -X GET 'https://cli.4everland.org/domain/1?pageSize=10' \
                 "certificate": false,
                 "nameServers": "THIRD_PARTY",
                 "projectName": "a-project",
-                "projectId": "prCohaHrjeacacsttheIrd",
+                "projectId": "prCohaHr***theIrd",
                 "createAt": 1234567890,
                 "domainId": "CdhaHomraaiacsnthIedr"
             }

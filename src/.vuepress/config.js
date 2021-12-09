@@ -84,7 +84,11 @@ module.exports = {
         {
           title: "Cli",
           collapsable: false,
-          children: [...apiFilesList, "./ErrorMessage/ErrorMessage"],
+          children: [
+            "./Readme/README_CLI",
+            ...apiFilesList,
+            "./ErrorMessage/ErrorMessage",
+          ],
         },
       ],
     },

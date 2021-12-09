@@ -27,10 +27,10 @@ POST /deploy
 
 ```
 curl -L -X POST 'https://cli.4everland.org/deploy' \
--H 'token: xxxx' \
+-H 'token:eyJ0eXAiOiJKV1QiLCJhbGc***tx60gDRzH37majqSgZ2dg' \
 -H 'Accept-Version: 1.0' \
 -F 'file=@"/path/to/ipfs.zip"'
--F 'projectId=61a6e99088b02d0001344792'
+-F 'projectId=61a6e990***01344792'
 ```
 
 ### response:
