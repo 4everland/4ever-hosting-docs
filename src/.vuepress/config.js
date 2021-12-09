@@ -1,7 +1,7 @@
 const { description } = require("../../package");
 const fs = require("fs");
 let apiFilesList = [];
-const apiFiles = fs.readdirSync("./src/api/cli");
+const apiFiles = fs.readdirSync("./src/cli/cli");
 apiFiles.forEach(function(item, index) {
   if (item != "README.md") {
     item.split(".");
@@ -52,8 +52,8 @@ module.exports = {
         link: "/guide/",
       },
       {
-        text: "API",
-        link: "/api/",
+        text: "Cli",
+        link: "/cli/",
       },
       // {
       //   text: 'Github',
@@ -75,17 +75,17 @@ module.exports = {
           ],
         },
       ],
-      "/api/": [
+      "/cli/": [
         {
-          title: "Api",
+          title: "CLI",
           collapsable: false,
           children: [""],
         },
         {
-          title: "Cli",
+          title: "API Reference",
           collapsable: false,
           children: [
-            "./Readme/README_CLI",
+            "./restApi",
             ...apiFilesList,
             "./ErrorMessage/ErrorMessage",
           ],
